@@ -14,14 +14,12 @@ public class DetalleVenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //Lo siguiente es como cada renglón de una factura
-
-    //Venta Muchos detalles pueden estar asociados a una venta
+    //Venta 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name="ventaId")
     private Venta venta;
 
-    //Producto  Muchos detalles pueden estar asociados a un producto
+    //Producto  
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name="productoId")
     private Producto prod;
