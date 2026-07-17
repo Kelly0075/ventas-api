@@ -30,8 +30,6 @@ public class VentaController {
 
     @PutMapping("/{id}")
     public VentaDTO actualizar(@PathVariable Long id, @RequestBody VentaDTO dto) {
-        // Actualiza fecha, estado, idSucursal, total y reemplaza el detalle
-
         return ventaService.actualizarVenta(id, dto);
     }
 
