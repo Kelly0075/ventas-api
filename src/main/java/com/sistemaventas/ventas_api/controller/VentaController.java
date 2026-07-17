@@ -21,11 +21,6 @@ public class VentaController {
         return ResponseEntity.ok(ventaService.traerVentas());
     }
 
-    /**
-     * Crea una venta usando directamente VentaDTO en la request (opción simple, sin request separado).
-     * Se espera que el DTO traiga la información
-     *
-     */
     @PostMapping
     public ResponseEntity<VentaDTO> create(@RequestBody VentaDTO dto) {
         VentaDTO created = ventaService.crearVenta(dto);
