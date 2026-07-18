@@ -64,13 +64,11 @@ public class VentaService implements IVentaService {
         vent.setSucursal(suc);
         vent.setTotal(ventaDto.getTotal());
 
-        // La lista de detalles
-        // --> Acá están los productos
+        //La lista de detalles
         List<DetalleVenta> detalles = new ArrayList<>();
         Double totalCalculado = 0.0;
 
         for (DetalleVentaDTO detDTO : ventaDto.getDetalle()) {
-            // Buscar producto por id (tu detDTO usa id como id de producto)
             Producto p = productoRepo.findByNombre(detDTO.getNombreProd()).orElse(null);
             if (p == null)
             {throw new RuntimeException("Producto no encontrado: " + detDTO.getNombreProd());}
@@ -86,10 +84,10 @@ public class VentaService implements IVentaService {
             totalCalculado = totalCalculado+(detDTO.getPrecio()*detDTO.getCantProd());
 
         }
-        //Seteamos la lista de detalle Venta
+        //Setear la lista de detalle Venta
         vent.setDetalle(detalles);
 
-        //guardamos en la BD
+        //Guardar en la BD
         vent = ventaRepo.save(vent);
 
         //Mapeo de salida
@@ -100,7 +98,7 @@ public class VentaService implements IVentaService {
 
     @Override
     public VentaDTO actualizarVenta(Long id, VentaDTO ventaDto) {
-        //buscar si la venta existe para actualizarla
+        //Buscar si la venta existe para actualizarla
         Venta v = ventaRepo.findById(id).orElse(null);
         if (v == null) throw new RuntimeException("Venta no encontrada");
 
