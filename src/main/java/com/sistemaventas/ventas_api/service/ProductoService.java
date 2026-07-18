@@ -36,7 +36,7 @@ public class ProductoService implements IProductoService {
     @Override
     public ProductoDTO actualizarProducto(Long id, ProductoDTO productoDto) {
 
-        //vamos a buscar si existe ese producto
+        //buscar si existe el producto
         Producto prod = repo.findById(id)
                 .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
 
