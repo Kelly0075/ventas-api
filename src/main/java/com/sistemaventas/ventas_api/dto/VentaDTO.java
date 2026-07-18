@@ -9,18 +9,18 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class VentaDTO {
-    //datos de la venta
+    //Datos de la venta
     private Long id;
     private LocalDate fecha;
     private String estado;
 
-    //datos de la sucursal
+    //Datos de la sucursal
     private Long idSucursal;
 
-    //lista de detalles
+    //Lista de detalles
     private List<DetalleVentaDTO> detalle;
 
-    //total de la venta
+    //Total de la venta
     private Double total;
 
 }
