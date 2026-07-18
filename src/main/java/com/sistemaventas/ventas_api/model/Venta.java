@@ -20,8 +20,8 @@ public class Venta {
     private LocalDate fecha;
     private String estado;
     private Double total;
-    @ManyToOne //Muchas ventas van a estar asociadas a cada sucursal
-    private Sucursal sucursal; //Objeto de tipo sucursal
+    @ManyToOne 
+    private Sucursal sucursal; 
 
     @OneToMany (mappedBy = "venta", cascade = CascadeType.ALL,
             orphanRemoval = true, fetch = FetchType.EAGER)
